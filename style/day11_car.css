@@ -1,0 +1,96 @@
+main {width:1200px; margin:0 auto;}
+main section {
+text-align:center;
+}
+main section .category {}
+main section .category::after {
+    background:#aaa; content:''; display:block;
+    width:20px; height:2px; margin:20px auto 0;
+}
+main section h1 {
+    font-size:1.5rem; letter-spacing:-0.02em;
+    padding:25px 0;
+}
+main section .contents {
+    color:#888; margin-bottom:30px;
+}
+/* 카히스토리 영상 */
+/* 카히스토리 영상 - 탭 제목, 내용 */
+main #video .tab_title {
+    display: flex; flex-flow:row nowrap;
+    align-items:center; justify-content:center;
+}
+main #video .tab_title a {
+    padding:20px 30px; display:inline-block;
+}
+main #video .tab_title a:last-child{border-bottom:5px solid #fff;}
+main #video .tab_title a.active {
+    border-bottom:5px solid #3A87FC;
+}
+main #video .tab_contents {}
+main #video .tab_contents .tab_c1 {position:relative;}
+main #video .tab_contents .tab_c1 img {
+    width:200px; position:absolute; right:50px; bottom:0;
+}
+main #video .tab_contents .tab_c1 video {width:80%; margin:0 auto;}
+main #video .tab_contents .tab_c2 {}
+main #video .tab_contents .tab_c2 img {width:80%; margin:0 auto;}
+main #video .tab_contents .active {}
+/* 자주 사용하는 메뉴 */
+main #menu {margin-bottom:50px;}
+main #menu .category {}
+main #menu h1 {}
+main #menu .contents {}
+main #menu .tab_title {
+    display:flex; justify-content:center;
+    border-bottom:1px solid #888;
+}
+main #menu .tab_title a {
+    width:150px; padding:20px 0; margin-right:10px; background:#fff;
+    position:relative; bottom:-1px;
+    border:1px solid #ccc;
+    border-bottom:1px solid #888;
+    
+}
+main #menu .tab_title a:last-child {margin-right:0;}
+main #menu .tab_title a.active {
+    border:1px solid #888;
+    border-bottom:1px solid #fff;
+    border-top:5px solid #3A87FC;
+}
+main #menu .tab_contents {}
+main #menu .tab_contents .tab_c1 {
+    display:flex; flex-flow:row nowrap;
+    margin-top:50px;text-align:left;
+}
+main #menu .tab_contents .tab_c1 .left {width:50%;}
+main #menu .tab_contents .tab_c1 .left h2 {
+    font-size:2rem; color:#3A87FC;
+    margin-bottom:20px;
+}
+main #menu .tab_contents .tab_c1 .left p {margin-top:20px; line-height:20px;}
+main #menu .tab_contents .tab_c1 .left p img {width:100%;}
+main #menu .tab_contents .tab_c1 .left p a {color:#3A87FC;}
+main #menu .tab_contents .tab_c1 .right {margin-left:30px; width:50%;}
+main #menu .tab_contents .tab_c1 .right h3 {
+    font-size:1.777rem; font-weight:300; margin-bottom:50px;
+}
+main #menu .tab_contents .tab_c1 .right ul {}
+main #menu .tab_contents .tab_c1 .right ul li {
+    display:flex; border-bottom:1px dashed #ccc; padding:20px 0;
+}
+main #menu .tab_contents .tab_c1 .right ul li:last-child {border:0;}
+main #menu .tab_contents .tab_c1 .right ul li > p {}
+main #menu .tab_contents .tab_c1 .right ul li > p img {}
+main #menu .tab_contents .tab_c1 .right ul li > .contents {padding-left: 20px;}
+main #menu .tab_contents .tab_c1 .right ul li > .contents .num {
+    font-weight:500; font-size:1.333rem; color:#3A87FC;
+}
+main #menu .tab_contents .tab_c1 .right ul li > .contents .con {}
+main #menu .tab_contents .tab_c1 .right ul li > .contents .con em {
+    font-size:1.333rem; color:#000; letter-spacing:-0.02em;
+    font-weight:600;
+}
+main #menu .tab_contents .tab_c2 {height:400px;}
+main #menu .tab_contents .tab_c3 {height:400px;}
+main #menu .tab_contents .tab_c4 {height:400px;}
