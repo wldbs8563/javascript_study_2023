@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13_scroll-4</title>
+    <style>
+        header {
+            position:fixed;
+            left:50px; top:50px;
+        }
+        header h1 {}
+        header nav {}
+        header nav a {
+            padding:15px;
+            text-decoration:none;
+            color:black; font-size:1.333rem;
+            text-align:center;
+        }
+        header nav a:hover{
+            border-bottom:2px solid #000;
+        }
+        aside {
+            position:fixed;
+            left:50px; top:300px;
+        }
+        aside .bar {
+            width:20px; height:2px;
+            background:#000; display:block;
+            margin:10px;
+        }
+        aside .active {
+            width:100px; height:2px;
+            background:#fff; display:block;
+        }
+        main {}
+        main .bg {
+            height:100vh; background-size:cover;
+            background-position:center;
+        }
+        main .bg1 {background-image:url(./images/bg1.jpg);}
+        main .bg2 {background-image:url(./images/bg2.jpg);}
+        main .bg3 {background-image:url(./images/bg3.jpg);}
+        main .bg4 {background-image:url(./images/bg4.jpg);}
+        #mouse {
+            width:50px; height:50px;
+            border:3px solid #fff;
+            border-radius:50%;
+            /* 화면 최상단 스크롤 상관없이 고정되며 마우스 따라가는 CSS */
+            position:fixed; left:0; top:0; z-index:999;
+            transform:translate(-50%, -50%);
+            transition:all 0.3s;/* 애니메이션 기능추가 */
+            /* 필수속성:마우스 다라다니는 이미지 만들 경우 */
+            /* (위)링크, 버튼 등 선택이 안되는 문제 해결 */
+            pointer-events:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="mouse"></div>
+    <header>
+        <h1>Interior View</h1>
+        <nav>
+            <a href="#">A</a>
+            <a href="#">B</a>
+            <a href="#">C</a>
+            <a href="#">D</a>
+        </nav>
+    </header>
+    <aside>
+        <span class="bar active"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </aside>
+    <main>
+        <div class="bg bg1"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="bg bg4"></div>
+    </main>
+    <script>
+        const nav = document.querySelectorAll('nav a')
+        const bar = document.querySelectorAll('aside .bar')
+        const bg = document.querySelectorAll('main .bg')
+        console.log(nav, bar, bg)
+        //각 A B C D를 누르면 그 영역으로 이동
+        nav.forEach(function(t,i,a){
+            t.addEventListener('click',function(e){
+                e.preventDefault()// a href 기능막기(위로 새로고침)
+            window.scrollTo(0, bg[i].offsetTop)
+            })
+        })
+        //각 영역 별 bar 활성화
+        const body = document.querySelector('body,html')
+        window.addEventListener('scroll',function(){
+            // console.log('body.scrollTop>>', body.scrollTop)
+            bar.forEach(function(t,i,a){
+                if(body.scrollTop >= bg[i].offsetTop){
+                    for(let j of bar){j.classList.remove('active')}
+                    t.classList.add('active')
+                }
+            })
+        })
+
+        //마우스 움직일 때 이벤트
+        const mouseImg = document.querySelector('#mouse')
+        console.log(mouseImg)
+        window.addEventListener('mousemove',function(e){
+            // console.log(e)
+            mouseImg.style.left = `${e.clientX}px`
+            mouseImg.style.top = `${e.clientY}px`
+        })
+    </script>
+</body>
+</html>
